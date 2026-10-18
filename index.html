@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#151c19">
+  <meta name="description" content="Qadarun Solutions is a UK-based influencer marketing agency helping brands and creators build relevant, carefully coordinated partnerships.">
+  <title>Qadarun Solutions | Influencer Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #151c19;
+      --forest: #263b32;
+      --ivory: #f5f1e8;
+      --paper: #fcfaf5;
+      --gold: #b89a67;
+      --gold-light: #d4bd91;
+      --muted: #77786f;
+      --line: #e3dccf;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
+      --heading: "Manrope", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1160px, calc(100% - 64px)); margin: auto; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.3px;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    /* Navigation */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(252,250,245,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--heading);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -.7px;
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 39px;
+      height: 39px;
+      background: var(--ink);
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: 24px;
+      border: 1px solid #75674d;
+    }
+    .brand small {
+      display: block;
+      margin-top: -4px;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2.7px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a {
+      color: #52574f;
+      font-size: 12px;
+      font-weight: 600;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links .nav-cta {
+      padding: 12px 19px;
+      background: var(--ink);
+      color: var(--ivory);
+    }
+    .nav-cta:hover { background: var(--forest); }
+    .menu-toggle {
+      display: none;
+      padding: 9px 12px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 85% 40%, rgba(184,154,103,.14), transparent 38%),
+        var(--ink);
+      color: var(--ivory);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -160px;
+      bottom: -300px;
+      width: 570px;
+      height: 570px;
+      border: 1px solid rgba(212,189,145,.13);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-grid {
+      min-height: 620px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 60px;
+      padding-top: 82px;
+      padding-bottom: 92px;
+    }
+    .hero .eyebrow { margin-bottom: 28px; }
+    .hero h1 {
+      max-width: 720px;
+      margin: 0;
+      font-family: var(--heading);
+      font-size: clamp(44px, 5.4vw, 73px);
+      font-weight: 500;
+      line-height: 1.12;
+      letter-spacing: -3.5px;
+    }
+    .hero h1 em {
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-weight: 500;
+    }
+    .hero-copy {
+      max-width: 495px;
+      margin: 26px 0 0;
+      color: #c7c8bd;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 34px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 49px;
+      padding: 0 23px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: transform .2s, background .2s;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-gold { background: var(--gold-light); color: var(--ink); }
+    .button-gold:hover { background: #e1cca6; }
+    .button-outline { border: 1px solid #66695f; color: var(--ivory); }
+    .button-outline:hover { background: rgba(255,255,255,.06); }
+
+    .hero-art {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 400px;
+    }
+    .art-ring {
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border: 1px solid rgba(212,189,145,.32);
+      border-radius: 50%;
+    }
+    .art-ring.ring-two { width: 255px; height: 255px; }
+    .art-ring.ring-three { width: 390px; height: 390px; opacity: .45; }
+    .art-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 174px;
+      height: 174px;
+      border: 1px solid rgba(212,189,145,.55);
+      background: linear-gradient(145deg, #2d3d32, #19231d);
+      border-radius: 50%;
+      box-shadow: 0 20px 80px rgba(0,0,0,.25);
+    }
+    .art-center span {
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: 68px;
+      line-height: 1.1;
+    }
+    .art-center small {
+      color: #d6d2c5;
+      font-size: 8px;
+      letter-spacing: 3px;
+    }
+    .art-label {
+      position: absolute;
+      z-index: 1;
+      padding: 13px 17px;
+      border: 1px solid rgba(212,189,145,.25);
+      background: #202a23;
+      color: var(--ivory);
+      font-size: 11px;
+      letter-spacing: .3px;
+    }
+    .art-label.one { top: 45px; left: 0; }
+    .art-label.two { right: -8px; top: 145px; }
+    .art-label.three { bottom: 42px; left: 24px; }
+
+    /* Shared sections */
+    .section { padding: 112px 0; }
+    .section-heading { max-width: 660px; }
+    .section-heading h2,
+    .split-copy h2,
+    .contact-copy h2 {
+      margin: 20px 0;
+      font-family: var(--heading);
+      font-size: clamp(34px, 4vw, 49px);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -1.8px;
+    }
+    .section-heading h2 em,
+    .split-copy h2 em,
+    .contact-copy h2 em {
+      font-family: var(--serif);
+      font-weight: 500;
+    }
+    .section-heading p,
+    .split-copy > p {
+      max-width: 610px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+    /* Services */
+    .services { background: var(--ivory); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 52px;
+    }
+    .service-card {
+      min-height: 260px;
+      padding: 32px 29px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      transition: border-color .25s, transform .25s;
+    }
+    .service-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .service-no {
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 23px;
+    }
+    .service-card h3 {
+      margin: 30px 0 11px;
+      font-family: var(--heading);
+      font-size: 19px;
+      font-weight: 700;
+    }
+    .service-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.9; }
+
+    /* Brand experience */
+    .brands-section { background: var(--paper); }
+    .brand-panel {
+      margin-top: 38px;
+      padding: 39px;
+      background: var(--ink);
+      color: var(--ivory);
+    }
+    .brand-panel-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .brand-panel h3 {
+      max-width: 520px;
+      margin: 0;
+      font-family: var(--heading);
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .brand-panel-top p {
+      max-width: 310px;
+      margin: 0;
+      color: #bfc2b8;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .brand-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid #41483f;
+      border-bottom: 1px solid #41483f;
+    }
+    .brand-name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 115px;
+      padding: 20px;
+      text-align: center;
+      font-family: var(--heading);
+      font-size: clamp(17px, 2vw, 23px);
+      font-weight: 700;
+      letter-spacing: -.7px;
+    }
+    .brand-name + .brand-name { border-left: 1px solid #41483f; }
+    .brand-name span { color: var(--gold-light); }
+    .brand-note {
+      margin: 17px 0 0;
+      color: #bfc2b8;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    /* Approach */
+    .approach { background: #eae4d8; }
+    .approach-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 95px;
+      align-items: start;
+    }
+    .approach-intro { position: sticky; top: 120px; }
+    .approach-intro > p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+    .steps { border-top: 1px solid #d2c8b7; }
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 18px;
+      padding: 25px 0;
+      border-bottom: 1px solid #d2c8b7;
+    }
+    .step-number { color: var(--gold); font-family: var(--serif); font-size: 22px; }
+    .step h3 { margin: 0 0 6px; font-family: var(--heading); font-size: 17px; }
+    .step p { margin: 0; color: #707167; font-size: 13px; line-height: 1.9; }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 95px;
+      align-items: start;
+    }
+    .about-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 310px;
+      background: var(--forest);
+      color: var(--gold-light);
+      font-family: var(--serif);
+      font-size: 145px;
+    }
+    .about-copy p { color: var(--muted); font-size: 14px; line-height: 2; }
+    .about-copy .about-lead { color: var(--ink); font-size: 17px; }
+
+    /* Contact */
+    .contact { padding-top: 25px; padding-bottom: 90px; }
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+      padding: 62px;
+      background: var(--ink);
+      color: var(--ivory);
+    }
+    .contact-copy h2 { max-width: 620px; margin-top: 17px; }
+    .contact-copy p { max-width: 480px; color: #c3c5bb; font-size: 13px; line-height: 1.9; }
+    .contact-action { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+    .contact-email { color: var(--gold-light); font-size: 12px; }
+
+    /* Footer */
+    .footer { background: var(--paper); }
+    .footer-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .footer-main p { color: var(--muted); font-size: 11px; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 17px 0 25px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    @media (max-width: 850px) {
+      .container { width: min(100% - 42px, 1160px); }
+      .nav { min-height: 72px; }
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 71px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 22px 22px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 5px; }
+      .nav-links .nav-cta { margin-top: 8px; text-align: center; }
+      .hero-grid { grid-template-columns: 1fr; gap: 20px; padding-top: 75px; }
+      .hero-art { min-height: 370px; }
+      .hero-copy { max-width: 600px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .approach-grid, .about-grid { grid-template-columns: 1fr; gap: 38px; }
+      .approach-intro { position: static; }
+      .about-mark { min-height: 230px; }
+      .contact-card { grid-template-columns: 1fr; padding: 42px; }
+      .brand-panel-top { flex-direction: column; }
+    }
+    @media (max-width: 560px) {
+      .container { width: calc(100% - 36px); }
+      .section { padding: 76px 0; }
+      .brand { font-size: 15px; }
+      .brand-mark { width: 35px; height: 35px; }
+      .hero-grid { padding-top: 65px; padding-bottom: 55px; }
+      .hero h1 { font-size: clamp(41px, 12vw, 59px); letter-spacing: -2.5px; }
+      .hero-copy { font-size: 13px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-art { min-height: 310px; transform: scale(.86); margin: -5px -20px; }
+      .art-ring { width: 280px; height: 280px; }
+      .art-ring.ring-two { width: 215px; height: 215px; }
+      .art-ring.ring-three { width: 330px; height: 330px; }
+      .art-center { width: 145px; height: 145px; }
+      .art-center span { font-size: 58px; }
+      .art-label.one { left: 0; top: 28px; }
+      .art-label.two { right: -8px; top: 125px; }
+      .art-label.three { left: 0; bottom: 23px; }
+      .section-heading h2, .split-copy h2, .contact-copy h2 { font-size: 35px; }
+      .services-grid { grid-template-columns: 1fr; margin-top: 32px; }
+      .service-card { min-height: auto; padding: 27px; }
+      .service-card h3 { margin-top: 20px; }
+      .brand-panel { padding: 25px 20px; }
+      .brand-panel h3 { font-size: 21px; }
+      .brand-list { grid-template-columns: 1fr; }
+      .brand-name { min-height: 78px; }
+      .brand-name + .brand-name { border-left: 0; border-top: 1px solid #41483f; }
+      .step { grid-template-columns: 35px 1fr; gap: 12px; }
+      .contact-card { padding: 32px 24px; }
+      .contact-action { width: 100%; }
+      .contact-action .button { width: 100%; }
+      .footer-main { align-items: flex-start; flex-direction: column; gap: 8px; }
+      .footer-bottom { flex-direction: column; gap: 5px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Qadarun Solutions home">
+        <span class="brand-mark">Q</span>
+        <span>Qadarun<small>SOLUTIONS</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#brands">Brand experience</a>
+        <a href="#approach">Our approach</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#contact">Let's talk</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Influencer marketing · United Kingdom</div>
+          <h1>The right creators.<br>The right audience.<br><em>Lasting impact.</em></h1>
+          <p class="hero-copy">Thoughtfully planned creator partnerships that help brands reach relevant audiences through content people choose to watch.</p>
+          <div class="hero-actions">
+            <a class="button button-gold" href="#contact">Discuss a campaign ↗</a>
+            <a class="button button-outline" href="#services">Explore our services</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Qadarun Solutions brand mark">
+          <div class="art-ring ring-three"></div>
+          <div class="art-ring"></div>
+          <div class="art-ring ring-two"></div>
+          <div class="art-center"><span>Q</span><small>QADARUN</small></div>
+          <div class="art-label one">Creator discovery</div>
+          <div class="art-label two">Relevant audiences</div>
+          <div class="art-label three">Campaign coordination</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">What we do</div>
+          <h2>Creator partnerships,<br><em>carefully considered.</em></h2>
+          <p>From identifying relevant creators to coordinating campaign delivery, each partnership starts with the brand, the audience and the objective.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-no">01</span>
+            <h3>Influencer campaigns</h3>
+            <p>Creator-led campaigns shaped around your audience, campaign goals and brand requirements.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-no">02</span>
+            <h3>Creator partnerships</h3>
+            <p>Research and selection focused on content relevance, audience fit and the creator's established style.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-no">03</span>
+            <h3>Campaign coordination</h3>
+            <p>Clear communication around deliverables, timelines, approvals and the practical details of a campaign.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section brands-section" id="brands">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Brand experience</div>
+          <h2>Relevant brands.<br><em>Relevant creators.</em></h2>
+          <p>Brand-focused creator planning across consumer products, sleep and technology.</p>
+        </div>
+        <div class="brand-panel">
+          <div class="brand-panel-top">
+            <h3>Understanding the brand comes before selecting the creator.</h3>
+            <p>Each brief calls for its own audience, content style and partnership approach.</p>
+          </div>
+          <div class="brand-list">
+            <div class="brand-name">Vita <span>&nbsp;Coco</span></div>
+            <div class="brand-name">Manta <span>&nbsp;Sleep</span></div>
+            <div class="brand-name">Abacus.AI</div>
+          </div>
+          <p class="brand-note">Brand names are shown for identification. This section does not, by itself, claim an endorsement, completed campaign or formal client relationship.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach" id="approach">
+      <div class="container approach-grid">
+        <div class="approach-intro">
+          <div class="eyebrow">Our approach</div>
+          <h2 class="section-heading">A considered process.<br><em>Clear communication.</em></h2>
+          <p>Good partnerships start with understanding what a brand needs and finding creators whose content makes sense for it.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">01</span>
+            <div><h3>Understand</h3><p>Clarify the campaign objective, target audience, deliverables and practical requirements.</p></div>
+          </article>
+          <article class="step">
+            <span class="step-number">02</span>
+            <div><h3>Identify</h3><p>Research creators whose content and audience align with the campaign brief.</p></div>
+          </article>
+          <article class="step">
+            <span class="step-number">03</span>
+            <div><h3>Coordinate</h3><p>Align the brand and creator on scope, timelines, content requirements and fees.</p></div>
+          </article>
+          <article class="step">
+            <span class="step-number">04</span>
+            <div><h3>Deliver</h3><p>Keep communication organised throughout the agreed campaign process.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-mark" aria-hidden="true">Q.</div>
+        <div class="about-copy">
+          <div class="eyebrow">About Qadarun</div>
+          <h2 class="section-heading">Built around <em>meaningful partnerships.</em></h2>
+          <p class="about-lead">Qadarun Solutions is a UK-based influencer marketing agency focused on bringing brands and content creators together through relevant, thoughtfully planned partnerships.</p>
+          <p>The focus is on understanding the brief, finding suitable creators and keeping campaign communication clear from initial planning through delivery.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div class="contact-copy">
+            <div class="eyebrow">Start a conversation</div>
+            <h2>Have a campaign in mind?<br><em>Let's discuss it.</em></h2>
+            <p>Share a little about your brand, audience and campaign objectives to start the conversation.</p>
+          </div>
+          <div class="contact-action">
+            <a class="button button-gold" href="mailto:umar@qadarunsolutions.com?subject=Influencer%20marketing%20enquiry">Email Qadarun ↗</a>
+            <a class="contact-email" href="mailto:umar@qadarunsolutions.com">umar@qadarunsolutions.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-main">
+      <a class="brand" href="#home">
+        <span class="brand-mark">Q</span>
+        <span>Qadarun<small>SOLUTIONS</small></span>
+      </a>
+      <p>Influencer marketing, thoughtfully coordinated.</p>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Qadarun Solutions. All rights reserved.</span>
+      <a href="mailto:umar@qadarunsolutions.com">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const menuButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+</body>
+</html>
